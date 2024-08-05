@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Example</title>
+    <style>
+        .hide-menu {
+            display: none;
+        }
+        .show-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <aside>
+            <h2>Navigation</h2>
+            <nav>
+                <ul>
+                    <li><a href="#" class="menulink">Menu 1</a>
+                        <ul class="submenu">
+                            <li><a href="#">Menu 1A</a></li>
+                            <li><a href="#">Menu 1B</a></li>
+                            <li><a href="#">Menu 1C</a></li>
+                            <li><a href="#">Menu 1D</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="menulink">Menu 2</a>
+                        <ul class="submenu">
+                            <li><a href="#">Menu 2A</a></li>
+                            <li><a href="#">Menu 2B</a></li>
+                            <li><a href="#">Menu 2C</a></li>
+                            <li><a href="#">Menu 2D</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            "use strict";
+
+            // Select all submenu elements
+            var submenus = document.querySelectorAll('.submenu');
+
+            // Loop through each submenu and add the class 'hide-menu' to hide them
+            for (var i = 0; i < submenus.length; i++) {
+                submenus[i].className = "hide-menu";
+            }
+
+            // Add click event listeners to the menu links
+            var menus = document.querySelectorAll('.menulink');
+            for (let i = 0; i < menus.length; i++) {
+                menus[i].addEventListener('click', function() {
+                    if (submenus[i].classList.contains('hide-menu')) {
+                        submenus[i].className = "show-menu";
+                    } else if (submenus[i].classList.contains('show-menu')) {
+                        submenus[i].className = "hide-menu";
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
